@@ -1,63 +1,64 @@
-const clientModel = require('../models/Client');
+const skillModel = require('../models/skill');
 
-const getClients = (req, res) =>  {
-    clientModel
-        .getAllClients()
+const getSkills = (req, res) =>  {
+    skillModel
+        .getAllSkills()
         .then(results => res.status(201).json(results))
         .catch(error => res.status(500).json(error));
 };
 
-const getClient = (req, res) => {
+const getSkill = (req, res) => {
     const { id } = req.params
 
-    clientModel
-        .getClient(id)
+    skillModel
+        .getSkill(id)
         .then(results => res.status(201).json(results))
         .catch(error => res.status(500).json(error));
 
 };
 
-const insertClient = (req, res) => {
+const insertSkill = (req, res) => {
     const { nombres } = req.body
 
     if(first_name !== '' && last_name !== ''){
-        clientModel
-            .insertClient({ nombres })
+        skillModel
+            .insertSkill({ nombres})
             .then(results => res.status(201).json(results))
             .catch(error => res.status(500).json(error));
     }
 }
 
-const updateClient = (req, res) => {
+const updateSkill = (req, res) => {
     const { id } = req.params
     const { nombres } = req.body
 
-    clientModel
-        .updateClient(id,{ nombres })
+    skillModel
+        .updateSkill(id,{ nombres})
         .then(results => res.status(201).json(results))
         .catch(error => res.status(500).json(error));
 }
 
-const deleteClient = (req,res) => {
+const deleteSkill = (req,res) => {
     const { id } = req.params
 
-    clientModel
-        .deleteClient(id)
+    skillModel
+        .deleteSkill(id)
         .then(results => res.status(201).json(results))
         .catch(error => res.status(500).json(error));
 }
 
-const insertClients = (req, res) =>  res.status(200).send({
-    message:"Clients"
+const insertSkills = (req, res) =>  res.status(200).send({
+    message:"habilidad"
 });
 
 
 
 module.exports = {
-    getClients,
-    getClient,
-    insertClients,
-    insertClient,
-    updateClient,
-    deleteClient
+    getSkills,
+    getSkill,
+    insertSkill,
+    updateSkill,
+    deleteSkill,
+    insertSkills
+    
 };

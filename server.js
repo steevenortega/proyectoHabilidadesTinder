@@ -6,6 +6,7 @@ const Routes = require('./routes');
 
 server.use(express.json());
 server.use('/clients', Routes.ClientRoutes);
+server.use('/skills', Routes.SkillRoutes);
 
 
 server.listen(port, () =>{
