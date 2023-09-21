@@ -9,6 +9,8 @@ server.use('/clients', Routes.ClientRoutes);
 server.use('/skills', Routes.SkillRoutes);
 server.use('/contracts', Routes.ContractRoutes);
 server.use('/companies', Routes.CompanyRoutes);
+server.use('/ratings', Routes.RatingRoutes);
+server.use('/payments', Routes.PaymentRoutes);
 
 
 server.listen(port, () =>{
